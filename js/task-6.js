@@ -38,8 +38,6 @@ function createBoxes(amount) {
     arr.toString().replaceAll(',', '')
   );
 
-  console.log(boxesContainer);
-
   controlsBarInput.value = null;
 }
 
