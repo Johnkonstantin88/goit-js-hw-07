@@ -1,15 +1,17 @@
-const createBtn = document.querySelector("[data-create]");
-const destroyBtn = document.querySelector("[data-destroy]");
-const controlsBar = document.querySelector("#controls");
-const boxesContainer = document.querySelector("#boxes");
+const createBtn = document.querySelector('[data-create]');
+const destroyBtn = document.querySelector('[data-destroy]');
+const controlsBarInput = document.querySelector('[type="number"]');
+const boxesContainer = document.querySelector('#boxes');
 
-createBtn.addEventListener("click", createBoxes);
-destroyBtn.addEventListener("click", destroyBoxes);
+boxesContainer.classList.add('boxes-container');
+
+createBtn.addEventListener('click', () =>
+  createBoxes(Number(controlsBarInput.value))
+);
+destroyBtn.addEventListener('click', destroyBoxes);
 
 function createBoxes(amount) {
-  boxesContainer.innerHTML = "";
-
-  amount = Number(controlsBar.firstElementChild.value);
+  boxesContainer.innerHTML = '';
 
   const arr = [];
 
@@ -32,15 +34,15 @@ function createBoxes(amount) {
   }
 
   boxesContainer.insertAdjacentHTML(
-    "beforeend",
-    arr.toString().replaceAll(",", "")
+    'beforeend',
+    arr.toString().replaceAll(',', '')
   );
 
-  controlsBar.firstElementChild.value = null;
+  controlsBarInput.value = null;
 }
 
 function destroyBoxes() {
-  boxesContainer.innerHTML = "";
+  boxesContainer.innerHTML = '';
 }
 
 function getRandomHexColor() {
