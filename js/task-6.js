@@ -23,7 +23,7 @@ function createBoxes(amount) {
   }
 
   for (let index = 0; index < amount; index += 1) {
-    if (arr.length > 0) {
+    if (index > 0) {
       width += 10;
       height += 10;
     }
@@ -37,6 +37,8 @@ function createBoxes(amount) {
     'beforeend',
     arr.toString().replaceAll(',', '')
   );
+
+  console.log(boxesContainer);
 
   controlsBarInput.value = null;
 }
